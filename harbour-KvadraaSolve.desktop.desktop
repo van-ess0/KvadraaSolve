@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Name=KvadraaSolve
+Icon=/usr/share/icons/hicolor/86x86/apps/harbour-KvadraaSolve.png
+Exec=harbour-KvadraaSolve
+
+Name[en_US]=harbour-KvadraaSolve.desktop
