@@ -36,6 +36,7 @@ ApplicationWindow
 {
     initialPage: FirstPage { }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
+
 }
 
 

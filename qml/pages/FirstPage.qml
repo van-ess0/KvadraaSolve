@@ -31,16 +31,22 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+import "Global.js" as GlobalVars
 
 Page {
     id: page
 
-    //Making string in the PullDownMenu
+    //Making string in the PullDownMenu and filling global variables
+    //for cover information
     Item {
         id: equ
         property string bk: {if (parseInt(b.text) < 0) parseInt(b.text) + 'X'; else '+' + parseInt(b.text) + 'X'}
         property string ck: {if (parseInt(c.text) < 0) parseInt(c.text); else '+' + parseInt(c.text)}
         property string qua: parseInt(a.text) + 'X&#178;' + bk + ck + '=0'
+        /*GlobalVars.full: qua
+        GlobalVars.x1: x1.text
+        GlobalVars.x2: x2.text
+        GlobalVars.d: d.discriminant*/
     }
 
 
@@ -189,14 +195,15 @@ Page {
                          width: parent.width
                          font.weight: Font.Light
                          //anchors.left: d.right
-                         text: 'X1 = ' + ((-parseInt(b.text) + Math.sqrt(d.discriminant)) / (2 * parseInt(a.text)))
+                         property real x1var: ((-parseInt(b.text) + Math.sqrt(d.discriminant)) / (2 * parseInt(a.text)))
+                         text: 'X1 = ' + x1var
                      }
                      Label {
                          id: x2
                          width: parent.width
                          font.weight: Font.Light
-                         //anchors.left: x1.right
-                         text: 'X2 = ' + ((-parseInt(b.text) - Math.sqrt(d.discriminant)) / (2 * parseInt(a.text)))
+                         property real x2var: ((-parseInt(b.text) - Math.sqrt(d.discriminant)) / (2 * parseInt(a.text)))
+                         text: 'X2 = ' + x2var
                      }
                  //}
 

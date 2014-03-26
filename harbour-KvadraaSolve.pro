@@ -18,5 +18,6 @@ OTHER_FILES += qml/harbour-KvadraaSolve.qml \
     qml/pages/SecondPage.qml \
     rpm/harbour-KvadraaSolve.spec \
     rpm/harbour-KvadraaSolve.yaml \
-    harbour-KvadraaSolve.desktop
+    harbour-KvadraaSolve.desktop \
+    qml/pages/Global.js
 

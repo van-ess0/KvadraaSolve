@@ -31,6 +31,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+import "../pages/FirstPage.qml" as FirstPage
+
 CoverBackground {
     Label {
         id: label
@@ -38,10 +40,11 @@ CoverBackground {
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         textFormat: Text.RichText
         font.pixelSize: 20
-        text: "Work in process."
+        text: 'X1 = ' + FirstPage.x1.x1var
 
 
     }
+
 
    /* CoverActionList {
         id: coverAction
@@ -55,3 +58,4 @@ CoverBackground {
         }
     }*/
 }
+
