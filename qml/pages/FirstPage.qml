@@ -31,8 +31,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-import "Global.js" as GlobalVars
-
 Page {
     id: page
 
@@ -92,6 +90,8 @@ Page {
                 id: head
                 title: "KvadraaSolve"
             }
+
+            //Transported to the PullDownMenu
             //Label {
             //    width: parent.width
             //    height: (parent.height - head.height)  / 10
@@ -100,6 +100,7 @@ Page {
             //  text: parseInt(a.text) + ' X&#178; + ' + parseInt(b.text) + ' X + ' + parseInt(c.text) + ' = 0'
             //}
 
+            //Getting A in Ax^2+Bx+C=0
             Item {
                 id:sqX
                 width: parent.width
@@ -129,34 +130,34 @@ Page {
                     inputMethodHints: Qt.ImhDigitsOnly
                 }
               }
-                Item {
-                    id: x
-                    width: parent.width
-                    height: (parent.height - head.height)  / 8
-                    Label {
-                        id: bLabel
-                        width: parent.width / 10
-                        height: parent.height
-                        font.bold: true
-                        //anchors.leftMargin: Theme.paddingLarge
-                        //anchors.rightMargin: Theme.paddingLarge
+            Item {
+                id: x
+                width: parent.width
+                height: (parent.height - head.height)  / 8
+                Label {
+                    id: bLabel
+                    width: parent.width / 10
+                    height: parent.height
+                    font.bold: true
+                    //anchors.leftMargin: Theme.paddingLarge
+                    //anchors.rightMargin: Theme.paddingLarge
 
-                        //horizontalAlignment: Text.AlignLeft
-                        text: "X"
-                    }
-                    TextField {
-                        id: b
-                        width: parent.width - bLabel.width
-                        height: parent.height
-                        anchors.left: bLabel.right
-                        horizontalAlignment: Text.AlignRight
-                        //font.bold: true
-                        placeholderText: "Enter B"
-                        //text: "3"
-                        validator: IntValidator{}
-                        inputMethodHints: Qt.ImhDigitsOnly
-                    }
-               }
+                    //horizontalAlignment: Text.AlignLeft
+                    text: "X"
+                }
+                TextField {
+                    id: b
+                    width: parent.width - bLabel.width
+                    height: parent.height
+                    anchors.left: bLabel.right
+                    horizontalAlignment: Text.AlignRight
+                    //font.bold: true
+                    placeholderText: "Enter B"
+                    //text: "3"
+                    validator: IntValidator{}
+                    inputMethodHints: Qt.ImhDigitsOnly
+                }
+            }
 
                  Item {
                      id:free
@@ -185,10 +186,7 @@ Page {
                          inputMethodHints: Qt.ImhDigitsOnly
                      }
                  }
-                 //Item {
-                   //  id: disc
-                     //width: parent.width
-                     //height: (parent.height - head.height)  / 5
+
                      Label {
                          id: d
                          width: parent.width
@@ -214,7 +212,6 @@ Page {
                          property real x2var: ((-parseInt(b.text) - Math.sqrt(d.discriminant)) / (2 * parseInt(a.text)))
                          text: 'X2 = ' + x2var
                      }
-                 //}
 
             }
    }
