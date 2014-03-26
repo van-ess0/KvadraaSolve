@@ -34,9 +34,39 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: FirstPage { }
+    initialPage: FirstPage {}
+    //initialPage: kvadraaSolveIni
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
+    //Component {
+    //        id: kvadraaSolveIni
+    //        FirstPage {
+    //            id: firstpage
+    //            Component.onCompleted: appw._firstpage = FirstPage
+    //        }
+    //    }
+    FirstPage {
+        id: _firstpage
+    }
+
+    function getX1() {
+        if (_firstpage._x1.length === 0) return "Type A, B, C first"
+        else //return _firstpage._x1;
+            return _firstpage._x1;
+        }
+    function getX2() {
+
+        if (_firstpage._x2.length === 0) return "Type A, B, C first"
+        else return _firstpage._x2;
+        }
+    function getD() {
+
+        if (_firstpage._d.length === 0) return "Type A, B, C first"
+        else return _firstpage._d;
+        }
+    function getEqu() {
+        return _firstpage._equation;
+    }
+
 
 }
-
 

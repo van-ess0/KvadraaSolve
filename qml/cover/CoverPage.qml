@@ -31,18 +31,49 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-import "../pages/FirstPage.qml" as FirstPage
+import "../pages"
+
 
 CoverBackground {
-    Label {
-        id: label
-        anchors.centerIn: parent
-        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        textFormat: Text.RichText
-        font.pixelSize: 20
-        text: 'X1 = ' + FirstPage.x1.x1var
 
+    Column {
+        width: parent.width
 
+        Label {
+            id: head
+            //width: parent.width
+            height: parent.height / 5
+            anchors.horizontalCenter: parent.horizontalCenter
+            horizontalAlignment: Text.AlignVCenter
+            text: "KvadraaSolve"
+
+        }
+
+        Label {
+            id: equcov
+            anchors.horizontalCenter: parent.horizontalCenter
+            horizontalAlignment: Text.AlignVCenter
+            textFormat: Text.RichText
+            text: getEqu()
+        }
+
+        Label {
+            id: dcov
+            horizontalAlignment: Text.AlignLeft
+            text: getD()
+        }
+
+        Label {
+            id: x1cov
+            horizontalAlignment: Text.AlignLeft
+            text: getX1()
+        }
+
+        Label {
+            id: x2cov
+            horizontalAlignment: Text.AlignLeft
+            text: getX2()
+        }
     }
 
 

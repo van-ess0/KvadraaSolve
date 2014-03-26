@@ -36,17 +36,20 @@ import "Global.js" as GlobalVars
 Page {
     id: page
 
+    property alias _equation: equ.qua
+    property alias _x1: x1.text
+    property alias _x2: x2.text
+    property alias _d: d.text
+
     //Making string in the PullDownMenu and filling global variables
     //for cover information
     Item {
         id: equ
-        property string bk: {if (parseInt(b.text) < 0) parseInt(b.text) + 'X'; else '+' + parseInt(b.text) + 'X'}
-        property string ck: {if (parseInt(c.text) < 0) parseInt(c.text); else '+' + parseInt(c.text)}
-        property string qua: parseInt(a.text) + 'X&#178;' + bk + ck + '=0'
-        /*GlobalVars.full: qua
-        GlobalVars.x1: x1.text
-        GlobalVars.x2: x2.text
-        GlobalVars.d: d.discriminant*/
+        property string ak: {if (a.text === '') 'A'; else a.text}
+        property string bk: {if (parseInt(b.text) < 0) b.text + 'X'; else if (b.text === '') '+BX'; else '+' + b.text + 'X' }
+        property string ck: {if (parseInt(c.text) < 0) c.text; else if (c.text === '') '+C'; else '+' + c.text}
+        property string qua: ak + 'X&#178;' + bk + ck + '=0'
+        //GlobalVars.func(x1.x1var , x2.x2var , d.discriminant)
     }
 
 
@@ -106,6 +109,7 @@ Page {
                     width: parent.width / 10
                     height: parent.height
                     textFormat: Text.RichText
+                    font.bold: true
                     //anchors.leftMargin: Theme.paddingLarge
                     //anchors.rightMargin: Theme.paddingLarge
 
@@ -118,7 +122,8 @@ Page {
                     height: parent.height
                     anchors.left: aLabel.right
                     horizontalAlignment: Text.AlignRight
-                    font.bold: true
+                    //font.bold: true
+                    placeholderText: "Enter A"
                     //text: "2"
                     validator: IntValidator{}
                     inputMethodHints: Qt.ImhDigitsOnly
@@ -132,6 +137,7 @@ Page {
                         id: bLabel
                         width: parent.width / 10
                         height: parent.height
+                        font.bold: true
                         //anchors.leftMargin: Theme.paddingLarge
                         //anchors.rightMargin: Theme.paddingLarge
 
@@ -144,7 +150,8 @@ Page {
                         height: parent.height
                         anchors.left: bLabel.right
                         horizontalAlignment: Text.AlignRight
-                        font.bold: true
+                        //font.bold: true
+                        placeholderText: "Enter B"
                         //text: "3"
                         validator: IntValidator{}
                         inputMethodHints: Qt.ImhDigitsOnly
@@ -159,6 +166,7 @@ Page {
                          id: cLabel
                          width: parent.width / 10
                          height: parent.height
+                         font.bold: true
                          //anchors.leftMargin: Theme.paddingLarge
                          //anchors.rightMargin: Theme.paddingLarge
                          //horizontalAlignment: Text.AlignLeft
@@ -170,8 +178,9 @@ Page {
                          height: parent.height
                          anchors.left: cLabel.right
                          horizontalAlignment: Text.AlignRight
-                         font.bold: true
-                         //text: "1"
+                         //font.bold: true
+                         placeholderText: "Enter C"
+                         //text: "-1"
                          validator: IntValidator{}
                          inputMethodHints: Qt.ImhDigitsOnly
                      }

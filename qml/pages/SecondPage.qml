@@ -60,9 +60,10 @@ Page {
                        </style>\
 This is my first training application.<br>
  I'm still styding :)<br>
-You can find the source code in my GitHub repo. (working on it) <br>
+Source code is in my GitHub repo (van-ess0/KvadraaSolve). <br>
 Contact me in Twitter <a href='http://twitter.com/Van_ess0'>@Van_ess0</a><br>
-Thanks for using and best wishes!"
+Thanks for using and best wishes!<br><br><br>
+Special thanks to Amarchen for his HelloWorld-Pro which I used as example."
             onLinkActivated: {
                Qt.openUrlExternally(link)
             }
