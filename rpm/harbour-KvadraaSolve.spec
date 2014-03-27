@@ -29,7 +29,6 @@ BuildRequires:  desktop-file-utils
 %description
 This is the simple training app to solve Quadratic equation. Wrote with QML/Sailfish Silicia for SailfishOS by Van-ess0.
 
-
 %prep
 %setup -q -n %{name}-%{version}
 
@@ -71,5 +70,6 @@ desktop-file-install --delete-original       \
 /usr/share/harbour-KvadraaSolve
 /usr/share/applications
 /usr/share/icons/hicolor/86x86/apps
+/usr/share/icons/hicolor/90x90/apps
 # >> files
 # << files

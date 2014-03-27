@@ -12,11 +12,13 @@ CONFIG += sailfishapp
 
 SOURCES += src/harbour-KvadraaSolve.cpp
 
-OTHER_FILES += qml/harbour-KvadraaSolve.qml \
+OTHER_FILES += \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/harbour-KvadraaSolve.spec \
     rpm/harbour-KvadraaSolve.yaml \
-    harbour-KvadraaSolve.desktop
+    harbour-KvadraaSolve.desktop \
+    qml/pages/KvadraaSolve.qml \
+    qml/pages/About.qml \
+    qml/harbour-KvadraaSolve.qml \
+    qml/pages/Thanks.qml
 

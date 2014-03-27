@@ -2,5 +2,5 @@
 Type=Application
 X-Nemo-Application-Type=silica-qt5
 Name=KvadraaSolve
-Icon=/usr/share/icons/hicolor/90x90/apps/harbour-KvadraaSolve.png
+Icon=/usr/share/icons/hicolor/86x86/apps/harbour-KvadraaSolve.png
 Exec=harbour-KvadraaSolve

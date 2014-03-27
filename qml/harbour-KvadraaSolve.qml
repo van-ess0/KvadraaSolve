@@ -34,37 +34,40 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: FirstPage {}
-    //initialPage: kvadraaSolveIni
+    id: appwin
+    //initialPage: KvadraaSolve {}
+    initialPage: kvadraaSolveComponent
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
-    //Component {
-    //        id: kvadraaSolveIni
-    //        FirstPage {
-    //            id: firstpage
-    //            Component.onCompleted: appw._firstpage = FirstPage
-    //        }
-    //    }
-    FirstPage {
-        id: _firstpage
-    }
+
+    property KvadraaSolve _kvadraasolve
+    Component {
+            id: kvadraaSolveComponent
+            KvadraaSolve {
+                id: kvadraasolve
+                Component.onCompleted: appwin._kvadraasolve = kvadraasolve
+            }
+        }
+
+
+
 
     function getX1() {
-        if (_firstpage._x1.length === 0) return "Type A, B, C first"
-        else //return _firstpage._x1;
-            return _firstpage._x1;
+        if (_kvadraasolve._x1 === null) return "Type A, B, C first"
+        else
+            return _kvadraasolve._x1;
         }
     function getX2() {
 
-        if (_firstpage._x2.length === 0) return "Type A, B, C first"
-        else return _firstpage._x2;
+        if (_kvadraasolve._x2 === null) return "Type A, B, C first"
+        else return _kvadraasolve._x2;
         }
     function getD() {
 
-        if (_firstpage._d.length === 0) return "Type A, B, C first"
-        else return _firstpage._d;
+        if (_kvadraasolve._d === null) return "Type A, B, C first"
+        else return _kvadraasolve._d;
         }
     function getEqu() {
-        return _firstpage._equation;
+        return _kvadraasolve._equation;
     }
 
 

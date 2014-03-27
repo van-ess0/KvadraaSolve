@@ -30,14 +30,19 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-
 import "../pages"
 
 
 CoverBackground {
 
+    property alias _equation: equcov.text
+    property alias _x1: x2cov.text
+    property alias _x2: x2cov.text
+    property alias _d: dcov.text
+
     Column {
         width: parent.width
+        height: parent.height
 
         Label {
             id: head
@@ -51,28 +56,33 @@ CoverBackground {
 
         Label {
             id: equcov
+            height: parent.height / 5
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignVCenter
             textFormat: Text.RichText
             text: getEqu()
+            wrapMode: Text.WordWrap
         }
 
         Label {
             id: dcov
             horizontalAlignment: Text.AlignLeft
             text: getD()
+            wrapMode: Text.WordWrap
         }
 
         Label {
             id: x1cov
             horizontalAlignment: Text.AlignLeft
             text: getX1()
+            wrapMode: Text.WordWrap
         }
 
         Label {
             id: x2cov
             horizontalAlignment: Text.AlignLeft
             text: getX2()
+            wrapMode: Text.WordWrap
         }
     }
 
