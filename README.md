@@ -3,6 +3,6 @@ KvadraaSolve
 
 This is the simple training app to solve Quadratic equation. Wrote with QML/Sailfish Silicia for SailfishOS.
 
-<s>OK, this is release commit!</s> 
+//OK, this is release commit! 
 
 Still working aroung Cover.
