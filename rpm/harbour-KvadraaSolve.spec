@@ -61,6 +61,7 @@ desktop-file-install --delete-original       \
 
 %files
 %defattr(-,root,root,-)
+/usr/share/icons/hicolor/90x90/apps
 /usr/share/icons/hicolor/86x86/apps
 /usr/share/applications
 /usr/share/harbour-KvadraaSolve

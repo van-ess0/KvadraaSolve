@@ -48,9 +48,6 @@ ApplicationWindow
             }
         }
 
-
-
-
     function getX1() {
         if (_kvadraasolve._x1 === null) return "Type A, B, C first"
         else
