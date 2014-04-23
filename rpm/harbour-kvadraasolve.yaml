@@ -1,0 +1,30 @@
+Name: harbour-kvadraasolve
+Summary: Simple calc to solve quadratic equation.
+Version: 1.1
+Release: 1
+Group: Qt/Qt
+URL: http://example.org/
+License: 
+Sources:
+- '%{name}-%{version}.tar.bz2'
+Description: |-
+  This is my simple application to solve Quadratic equation. Requests about usability, functionality and others are welcome.
+Configure: none
+Builder: qtc5
+PkgConfigBR:
+- Qt5Quick
+- Qt5Qml
+- Qt5Core
+- sailfishapp >= 0.0.10
+Requires:
+- sailfishsilica-qt5 >= 0.10.9
+Files:
+- '%{_bindir}'
+- '%{_datadir}/%{name}/qml'
+- '%{_datadir}/applications/%{name}.desktop'
+- '%{_datadir}/icons/hicolor/86x86/apps/%{name}.png'
+- /usr/bin
+- /usr/share/harbour-kvadraasolve
+- /usr/share/applications
+- /usr/share/icons/hicolor/86x86/apps
+PkgBR: []
