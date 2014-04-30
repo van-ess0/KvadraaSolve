@@ -16,7 +16,6 @@ Page {
             horizontalAlignment: Text.AlignLeft
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             textFormat: Text.RichText
-            //textFormat: Text.RichText
             text: "<style>
                     a {
                         color: " +Theme.highlightColor +";\

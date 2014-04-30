@@ -17,6 +17,7 @@ OTHER_FILES += qml/harbour-kvadraasolve.qml \
     qml/pages/KvadraaSolve.qml \
     qml/pages/About.qml \
     qml/pages/Thanks.qml \
+    qml/images/kvadraa.png \
     rpm/harbour-kvadraasolve.spec \
     rpm/harbour-kvadraasolve.yaml \
     harbour-kvadraasolve.desktop

@@ -30,15 +30,9 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "../pages"
 
 
 CoverBackground {
-
-    property alias _equation: equcov.text
-    property alias _x1: x2cov.text
-    property alias _x2: x2cov.text
-    property alias _d: dcov.text
 
     Column {
         width: parent.width
@@ -46,10 +40,11 @@ CoverBackground {
 
         Label {
             id: head
-            //width: parent.width
             height: parent.height / 5
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignVCenter
+            font.bold: true
+            color: Theme.highlightColor
             text: "KvadraaSolve"
 
         }
@@ -60,6 +55,8 @@ CoverBackground {
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignVCenter
             textFormat: Text.RichText
+            font.bold: true
+            color: Theme.highlightColor
             text: getEqu()
             wrapMode: Text.WordWrap
         }
@@ -85,13 +82,11 @@ CoverBackground {
             wrapMode: Text.WordWrap
         }
     }
-
-
-   /* CoverActionList {
+   /*CoverActionList {
         id: coverAction
 
         CoverAction {
-            iconSource: "image://theme/icon-cover-next"
+            iconSource: "image://theme/icon-cover-cancel"
         }
 
         CoverAction {

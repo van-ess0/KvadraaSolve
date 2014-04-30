@@ -13,11 +13,11 @@ Name:       harbour-kvadraasolve
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Simple calc to solve quadratic equation.
-Version:    1.1
+Version:    2.3
 Release:    1
 Group:      Qt/Qt
 License:    LICENSE
-URL:        http://example.org/
+URL:        https://openrepos.net/content/vaness0/kvadraasolve
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-kvadraasolve.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9

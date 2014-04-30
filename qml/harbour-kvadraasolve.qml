@@ -49,24 +49,21 @@ ApplicationWindow
         }
 
     function getX1() {
-        if (_kvadraasolve._x1 === null) return "Type A, B, C first"
-        else
-            return _kvadraasolve._x1;
-        }
+        return _kvadraasolve._x1;
+    }
+
     function getX2() {
 
-        if (_kvadraasolve._x2 === null) return "Type A, B, C first"
-        else return _kvadraasolve._x2;
-        }
+        return _kvadraasolve._x2;
+    }
+
     function getD() {
 
-        if (_kvadraasolve._d === null) return "Type A, B, C first"
-        else return _kvadraasolve._d;
-        }
+        return _kvadraasolve._d;
+    }
+
     function getEqu() {
         return _kvadraasolve._equation;
     }
-
-
 }
 

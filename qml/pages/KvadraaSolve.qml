@@ -40,13 +40,20 @@ Page {
     property alias _x2: x2.text
     property alias _d: d.text
 
+    function cleanVal(){
+        a.text = ''
+        b.text = ''
+        c.text = ''
+        return 0
+    }
+
     //Making string in the PullDownMenu and filling global variables
     //for cover information
     Item {
         id: equ
-        property string ak: {if (a.text === '') 'A'; else a.text}
-        property string bk: {if (parseInt(b.text) < 0) b.text + 'X'; else if (b.text === '') '+BX'; else '+' + b.text + 'X' }
-        property string ck: {if (parseInt(c.text) < 0) c.text; else if (c.text === '') '+C'; else '+' + c.text}
+        property string ak: {if (a.text === '1') ''; else if(a.text === '-1') '-'; else a.text}
+        property string bk: {if (b.text === '0') ''; else if (b.text === '1') '+X'; else if (b.text === '-1') '-X'; else if (parseInt(b.text) < 0) b.text + 'X'; else if (b.text === '') '+BX'; else '+' + b.text + 'X' }
+        property string ck: {if (c.text === '0') ''; else if (parseInt(c.text) < 0) c.text; else if (c.text === '') '+C'; else '+' + c.text}
         property string qua: ak + 'X&#178;' + bk + ck + '=0'
     }
 
@@ -57,23 +64,24 @@ Page {
 
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
         PullDownMenu {
-            MenuItem {
-                text: "Thanks"
-                onClicked: pageStack.push(Qt.resolvedUrl("Thanks.qml"))
-            }
+
             MenuItem {
                 text: "About"
                 onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
             }
+            MenuItem {
+                text:"Clear"
+                onClicked: cleanVal()
+            }
+
             Label {
                 width: parent.width
-                //height: (parent.height - head.height)  / 10
                 horizontalAlignment: Text.AlignHCenter
+                color: Theme.highlightColor
                 textFormat: Text.RichText
                 text: equ.qua
             }
         }
-
 
         // Tell SilicaFlickable the height of its content.
         contentHeight: column.height
@@ -99,18 +107,21 @@ Page {
                 id:sqX
                 width: parent.width
                 height: (parent.height - head.height)  / 5
+
                 Label {
                     id: aLabel
                     width: parent.width / 10
                     height: parent.height
                     textFormat: Text.RichText
                     font.bold: true
+                    color: Theme.highlightColor
                     //anchors.leftMargin: Theme.paddingLarge
                     //anchors.rightMargin: Theme.paddingLarge
 
                     //horizontalAlignment: Text.AlignLeft
                     text: "X&#178;"
                 }
+
                 TextField {
                     id: a
                     width: parent.width - aLabel.width
@@ -125,28 +136,28 @@ Page {
                     //focus: true
                 }
               }
+
+            //Getting B in Ax^2+Bx+C=0
             Item {
                 id: x
                 width: parent.width
                 height: (parent.height - head.height)  / 5
+
                 Label {
                     id: bLabel
                     width: parent.width / 10
                     height: parent.height
                     font.bold: true
-                    //anchors.leftMargin: Theme.paddingLarge
-                    //anchors.rightMargin: Theme.paddingLarge
-
-                    //horizontalAlignment: Text.AlignLeft
+                    color: Theme.highlightColor
                     text: "X"
                 }
+
                 TextField {
                     id: b
                     width: parent.width - bLabel.width
                     height: parent.height
                     anchors.left: bLabel.right
                     horizontalAlignment: Text.AlignRight
-                    //font.bold: true
                     placeholderText: "Enter B"
                     //text: "3"
                     validator: IntValidator{}
@@ -154,61 +165,64 @@ Page {
                 }
             }
 
-                 Item {
-                     id:free
-                     width: parent.width
-                     height: (parent.height - head.height)  / 5
-                     Label {
-                         id: cLabel
-                         width: parent.width / 10
-                         height: parent.height
-                         font.bold: true
-                         //anchors.leftMargin: Theme.paddingLarge
-                         //anchors.rightMargin: Theme.paddingLarge
-                         //horizontalAlignment: Text.AlignLeft
-                         text: "Free"
-                     }
-                     TextField {
-                         id: c
-                         width: parent.width - cLabel.width
-                         height: parent.height
-                         anchors.left: cLabel.right
-                         horizontalAlignment: Text.AlignRight
-                         //font.bold: true
-                         placeholderText: "Enter C"
-                         //text: "-1"
-                         validator: IntValidator{}
-                         inputMethodHints: Qt.ImhDigitsOnly
-                     }
-                 }
 
-                     Label {
-                         id: d
-                         width: parent.width
-                         font.weight: Font.Light
-                         font.pointSize: 5
-                         //Text.fontSizeMode: 15
-                         property int discriminant: (parseInt(b.text) * parseInt(b.text) - 4 * parseInt(a.text) * parseInt(c.text))
-                         text: "D = " + discriminant
-                     }
+            Item {
+                id:free
+                width: parent.width
+                height: (parent.height - head.height)  / 5
 
-                     Label {
-                         id: x1
-                         width: parent.width
-                         font.weight: Font.Light
-                         //anchors.left: d.right
-                         property real x1var: ((-parseInt(b.text) + Math.sqrt(d.discriminant)) / (2 * parseInt(a.text)))
-                         text: 'X1 = ' + x1var
-                     }
-                     Label {
-                         id: x2
-                         width: parent.width
-                         font.weight: Font.Light
-                         property real x2var: ((-parseInt(b.text) - Math.sqrt(d.discriminant)) / (2 * parseInt(a.text)))
-                         text: 'X2 = ' + x2var
-                     }
+                Label {
+                    id: cLabel
+                    width: parent.width / 10
+                    height: parent.height
+                    font.bold: true
+                    color: Theme.highlightColor
+                    text: "Free"
+                }
 
+                TextField {
+                    id: c
+                    width: parent.width - cLabel.width
+                    height: parent.height
+                    anchors.left: cLabel.right
+                    horizontalAlignment: Text.AlignRight
+                    placeholderText: "Enter C"
+                    //text: "-1"
+                    validator: IntValidator{}
+                    inputMethodHints: Qt.ImhDigitsOnly
+                }
             }
+
+            Label {
+                    id: d
+                    width: parent.width
+                    //font.weight: Font.Light
+                    font.pointSize: 5
+                    textFormat: Text.RichText
+                    //Text.fontSizeMode: 15
+                    property int discriminant: (parseInt(b.text) * parseInt(b.text) - 4 * parseInt(a.text) * parseInt(c.text))
+                    text: "<b>D = </b>" + discriminant
+             }
+
+             Label {
+                    id: x1
+                    width: parent.width
+                    //font.weight: Font.Light
+                    textFormat: Text.RichText
+                    property real x1var: ((-parseInt(b.text) + Math.sqrt(d.discriminant)) / (2 * parseInt(a.text)))
+                    text: '<b>X1 = </b>' + x1var
+             }
+
+             Label {
+
+                 id: x2
+                 width: parent.width
+                 textFormat: Text.RichText
+                 property real x2var: ((-parseInt(b.text) - Math.sqrt(d.discriminant)) / (2 * parseInt(a.text)))
+                 text: '<b>X2 = </b>' + x2var
+            }
+
+        }
    }
 
 }
